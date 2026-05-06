@@ -1,5 +1,28 @@
-//getAll end point
-# https://cse341-hq1b.onrender.com/contacts
-
+//------------------------------Development------------------------------
+//getAll endpoint
+GET http://localhost:3000/contacts
 //getSingle end point with id
-https://cse341-hq1b.onrender.com/contacts/69ac5e5c914b79cfcfe8dca9
+###
+
+GET http://localhost:3000/contacts/69ac5e5c914b79cfcfe8dca9
+###
+GET http://localhost:3000/contacts/69ac5e17914b79cfcfe8dca7
+### 
+GET http://localhost:3000/contacts/69ac5ee3914b79cfcfe8dcab
+
+
+//------------------------------Production------------------------------
+
+###
+//getAll endpoint
+GET https://cse341-hq1b.onrender.com/contacts
+
+
+###
+//getSingle end point with id
+
+GET https://cse341-hq1b.onrender.com/contacts/69ac5e5c914b79cfcfe8dca9
+###
+GET https://cse341-hq1b.onrender.com/contacts/69ac5e17914b79cfcfe8dca7
+### 
+GET https://cse341-hq1b.onrender.com/contacts/69ac5ee3914b79cfcfe8dcab
