@@ -1,0 +1,5 @@
+//getAll end point
+# https://cse341-hq1b.onrender.com/contacts
+
+//getSingle end point with id
+https://cse341-hq1b.onrender.com/contacts/69ac5e5c914b79cfcfe8dca9
