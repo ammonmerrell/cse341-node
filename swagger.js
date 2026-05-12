@@ -20,7 +20,19 @@ tags: [                   // by default: empty Array
       description: ''       // Tag description
     },
 ],
-components: {}
+components: {components: {
+        schemas: {
+            contacts: {
+                _id: '69ac5e5c914b79cfcfe8dca9',
+                firstName: 'Ben',
+                lastName: 'Fielding',
+                email: 'ben@google.gmail',
+                favoriteColor: 'red',
+                birthday: '04/2/2002',
+
+            },
+        }
+    }}
 
 };
 
