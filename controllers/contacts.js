@@ -27,7 +27,7 @@ const createContact = async (req,res) => {
         birthday: req.body.birthday
     };
     const response = await mongodb.getDatabase('cluster0').db('data0').collection('contacts').insertOne( contact);
-    if (response.modifiedCount > 0) {
+    if (response.acknowledged > 0) {
         res.status(204).send();
     } else {
         res.status(500).json(response.error || 'Some error occured while creating the contact.')
@@ -51,14 +51,20 @@ const updateContact = async (req,res) => {
     }
 };
 
-// const delContact = async (req,res) => {
-    
-// };
+const delContact = async (req,res) => {
+    const contactId = new ObjectId(req.params);
+     const response = await mongodb.getDatabase('cluster0').db('data0').collection('contacts').remove({ _id: contactId}, true);
+     if (response.deletedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'Some error occured while deleting the contact.')
+    }
+};
 
 module.exports = {
     getAll,
     getSingle,
     createContact,
     updateContact,
-    // delContact
+    delContact
 };
