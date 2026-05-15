@@ -7,6 +7,16 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
+app.use((req,res,next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+        'Access-Control-Allow_Headers',
+        'Origin, X-Requested-Width, Content-Type, Accept, Z-Key'
+    );
+    res.setHeader('Access-Control-Allow-Methods',' GET, POST, DELETE, OPTIONS');
+    next();
+})
+
 app.use('/', require('./routes'))
 
 
