@@ -53,7 +53,7 @@ const updateContact = async (req,res) => {
 
 const delContact = async (req,res) => {
     const contactId = new ObjectId(req.params);
-     const response = await mongodb.getDatabase('cluster0').db('data0').collection('contacts').remove({ _id: contactId}, true);
+     const response = await mongodb.getDatabase('cluster0').db('data0').collection('contacts').deleteOne({ _id: contactId});
      if (response.deletedCount > 0) {
         res.status(204).send();
     } else {
