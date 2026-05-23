@@ -41,3 +41,33 @@ Content-Type: application/json
 
 ### Delete game
 DELETE http://localhost:3000/games/6a1110cbd9e519df45822974 HTTP/1.1
+
+
+###\\\\\\\\\\\\\\\\\\store validation\\\\\\\\\\\\\\\\\\
+### get alll
+get http://localhost:3000/stores
+
+### get single
+GET http://localhost:3000/stores/6a1060a87c0ccc5dfbc03249
+###
+GET http://localhost:3000/stores/6a106f4d7c0ccc5dfbc03257
+
+### create store
+POST http://localhost:3000/stores HTTP/1.1
+Content-Type: application/json 
+
+{
+    "city": "Washington DC",
+    "items": "20"
+}
+### Edit store
+PUT http://localhost:3000/stores/6a1116539f04aa85965e2807 HTTP/1.1
+Content-Type: application/json 
+
+{
+    "city": "seattle",
+    "items": "5"
+
+  }
+### Delete store
+DELETE http://localhost:3000/stores/6a1116539f04aa85965e2807 HTTP/1.1
