@@ -52,7 +52,7 @@ const updateStore = async (req,res) => {
 };
 
 const deleteStore = async (req,res) => {
-    //#swagger.tags=['store']
+    //#swagger.tags=['stores']
     const storeId = new ObjectId(req.params);
     
     const response = await mongodb.getDatabase('cluster0').db('project2(w3-4)').collection('stores').deleteOne({ _id: storeId});
