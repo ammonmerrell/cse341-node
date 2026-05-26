@@ -5,10 +5,9 @@
     "description": "This api stores contact info.",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse341-hq1b.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
