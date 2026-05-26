@@ -6,7 +6,11 @@ const ObjectId = require('mongodb').ObjectId;
 const getAll = async (req,res) => {
     //#swagger.tags=['stores']
     const result = await mongodb.getDatabase('cluster0').db('project2(w3-4)').collection('stores').find();
-    result.toArray().then((stores) => {
+    result.toArray((err) => {
+            if (err) {
+                res.status(400).json({message: err});
+            }
+    }).then((stores) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(stores);
     });
@@ -16,7 +20,11 @@ const getSingle = async (req,res) => {
     //#swagger.tags=['stores']
     const storeId = new ObjectId(req.params);
     const result = await mongodb.getDatabase('cluster0').db('project2(w3-4)').collection('stores').find({ _id: storeId });
-    result.toArray().then((stores) => {
+    result.toArray((err) => {
+            if (err) {
+                res.status(400).json({message: err});
+            }
+    }).then((stores) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(stores);
     });
@@ -52,7 +60,7 @@ const updateStore = async (req,res) => {
 };
 
 const deleteStore = async (req,res) => {
-    //#swagger.tags=['store']
+    //#swagger.tags=['stores']
     const storeId = new ObjectId(req.params);
     
     const response = await mongodb.getDatabase('cluster0').db('project2(w3-4)').collection('stores').deleteOne({ _id: storeId});
