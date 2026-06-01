@@ -4,6 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 const getAll = async (req,res) => {
+    try {
     //#swagger.tags=['games']
     const result = await mongodb.getDatabase('cluster0').db('project2(w3-4)').collection('games').find();
     result.toArray((err) => {
@@ -14,9 +15,13 @@ const getAll = async (req,res) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(games);
     });
+} catch (err) {
+    res.status(500).json("could not connect to database: " + err);
+}
 };
 
 const getSingle = async (req,res) => {
+    try {
     //#swagger.tags=['games']
     const gameId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase('cluster0').db('project2(w3-4)').collection('games').find({ _id: gameId });
@@ -28,9 +33,13 @@ const getSingle = async (req,res) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(games);
     });
-};
+    } catch (err) {
+    res.status(500).json("could not connect to database: " + err);
+} };
+
 
 const createGame = async (req,res) => {
+    try {
     //#swagger.tags=['games']
     const game = {
         name: req.body.name,
@@ -47,9 +56,13 @@ const createGame = async (req,res) => {
     } else {
         res.status(500).json(response.error || 'Some error occured while creating the game.')
     }
+    } catch (err) {
+    res.status(500).json("could not connect to database: " + err);
+}
 };
 
 const updateGame = async (req,res) => {
+    try { 
     //#swagger.tags=['games']
     const gameId = new ObjectId(req.params);
     const game = {
@@ -67,9 +80,12 @@ const updateGame = async (req,res) => {
     } else {
         res.status(500).json(response.error || 'Some error occured while updating the game.')
     }
-};
+} catch (err) {
+    res.status(500).json("could not connect to database: " + err);
+}};
 
 const deleteGame = async (req,res) => {
+    try {
     //#swagger.tags=['games']
     const gameId = new ObjectId(req.params);
     const response = await mongodb.getDatabase('cluster0').db('project2(w3-4)').collection('games').deleteOne({ _id: gameId});
@@ -78,6 +94,9 @@ const deleteGame = async (req,res) => {
     } else {
         res.status(500).json(response.error || 'Some error occured while deleting the contact.')
     }
+    } catch (err) {
+    res.status(500).json("could not connect to database: " + err);
+}
 };
 
 
