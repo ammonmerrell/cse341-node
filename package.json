@@ -16,9 +16,12 @@
   "main": "server.js",
   "scripts": {
     "swagger": "node ./swagger.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "babel-jest": "^30.4.1",
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
@@ -33,10 +36,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@shelf/jest-mongodb": "^6.0.2",
     "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "globals": "^17.6.0",
+    "jest": "^30.4.2",
     "swagger-autogen": "^2.23.7",
     "swagger-codegen": "^0.1.1"
   }
