@@ -42,6 +42,7 @@
     "eslint-plugin-prettier": "^5.5.5",
     "globals": "^17.6.0",
     "jest": "^30.4.2",
+    "mockingoose": "^3.0.0",
     "swagger-autogen": "^2.23.7",
     "swagger-codegen": "^0.1.1"
   }
