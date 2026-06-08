@@ -1,8 +1,45 @@
-const sum = require('./sum');
+// const sum = require('./sum');
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+// test('adds 1 + 2 to equal 3', () => {
+//   expect(sum(1, 2)).toBe(3);
+// });
+
+
+
+// mock database file
+import mockingoose from 'mockingoose';
+import Game from './sum';
+
+describe('test mongoose Game model', () => {
+  it('should return the doc with findById', async () => {
+    const _doc = {
+      _id: '507f191e810c19729de860ea',
+      name: 'name',
+      releaseDate: 'mm/dd/yyyy',
+      platform: 'Platform',
+      genre: 'Genre',
+      description: 'Description',
+      players: 'Players',
+      type: 'Type',
+    };
+
+    mockingoose(Game).toReturn(_doc, 'findOne');
+
+    const doc = await Game.findById('507f191e810c19729de860ean');
+    expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc);
+  });
+
+  it('should return the doc with updateOne', async () => {
+    const _doc = { ok: 1, nModified: 1, n: 1 };
+
+    mockingoose(Game).toReturn(_doc, 'updateOne');
+
+    const result = await Game.updateOne({ name: 'changed' }, {});
+    expect(result).toMatchObject(_doc);
+  });
 });
+
+
 
 // const express = require('express');
 // const router = express.Router();
