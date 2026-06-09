@@ -13,19 +13,19 @@ import Game from './sum';
 describe('test mongoose Game model', () => {
   it('should return the doc with findById', async () => {
     const _doc = {
-      _id: '507f191e810c19729de860ea',
-      name: 'name',
-      releaseDate: 'mm/dd/yyyy',
-      platform: 'Platform',
-      genre: 'Genre',
-      description: 'Description',
-      players: 'Players',
-      type: 'Type',
-    };
+    "_id": "6a0c6dc429e0c632d66a6ba7",
+    "name": "The Legend of Zelda:Spirit Tracks",
+    "releaseDate": "12/07/2009",
+    "platform": "Nintendo DS",
+    "genre": "action-adventure",
+    "description": "Link and Zelda navigate the world by train to stop a demon from destroying the world.",
+    "players": "single-player",
+    "type": "handheld"
+  };
 
     mockingoose(Game).toReturn(_doc, 'findOne');
 
-    const doc = await Game.findById('507f191e810c19729de860ean');
+    const doc = await Game.findById('6a0c6dc429e0c632d66a6ba7');
     expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc);
   });
 
