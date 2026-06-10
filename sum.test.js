@@ -59,11 +59,11 @@ describe('test mongoose Game model', () => {
 //     let db;
 
 //     beforeAll(async () => {
-//         connection = await mongoClient.connect(MONGODB_URL, {
-//             useNewUrlParser: true,
-//             useUnifiedTopology: true,
+//         connection = await mongoClient.connect(global.__MONGO_URI__, {
+//             // useNewUrlParser: true,
+//             // useUnifiedTopology: true,
 //         });
-//         db = await connection.db(MONGODB_URL);
+//         db = await connection.db();
 //     });
 
 //     afterAll(async () => {

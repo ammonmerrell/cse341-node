@@ -201,7 +201,22 @@ const config = {
 
 // stop babel-jest from instiming and trasfroming files
 module.exports = {
+  // watchPathIgnorePatterns: ['globalConfig'], //comment this out if needed(new addition)
   transform: {},
+  //serveroptions creates new database for each test.
+
+  // also new addition
+  // mongodbMemoryServerOptions: {
+  //   binary: {
+  //     version: '4.0.3',
+  //     skipMD5: true,
+  //   },
+  //   instance: {
+  //     dbName: 'jest',
+  //   },
+  //   autoStart: false,
+  // },
+
 };
 
 module.exports = config;

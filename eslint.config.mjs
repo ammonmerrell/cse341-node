@@ -6,5 +6,14 @@ import { test, expect } from '@jest/globals';
 
 export default defineConfig([
   { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.node } },
-  { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
+  { files: ["**/*.js"], languageOptions: { sourceType: "commonjs"
+  //   , globals: { ...globals.jest,
+
+  // },
+ },
+// rules: {
+//   'no-unused-vars': 'warn',
+//   'no-undef': 'warn',
+// },
+ }, 
 ]);
